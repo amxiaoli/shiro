@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+<h3>系统主页</h3>
+
+<a th:href="@{/user/logout}">退出用户</a>
+<br>
+<span shiro:principal=""></span><br>
+<span shiro:authenticated="">
+    认证后展示
+</span>
+<span shiro:notAuthenticated="">
+    没有认证
+</span>
+<ul>
+    <li shiro:hasanyroles="admin,user">
+        <a href="">用户管理</a>
+        <ul>
+            <li shiro:hasPermission="user:add:*"><a href="">添加</a></li>
+            <li shiro:hasPermission="user:delete:*"><a href="">删除</a></li>
+            <li shiro:hasPermission="user:update:*"><a href="">修改</a></li>
+            <li shiro:hasPermission="order:find:*"><a href="">查询</a></li>
+        </ul>
+    </li>
+    <div shiro:hasRole="admin">
+        <li><a href="">商品管理</a></li>
+        <li><a href="">订单管理</a></li>
+        <li><a href="">物流管理</a></li>
+    </div>
+</ul>
+
+</body>
+</html>
