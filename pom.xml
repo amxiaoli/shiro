@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>5.1.10</version>
+            <version>5.3.1</version>
         </dependency>
         <!--第三方通用mapper-spring-boot启动器-->
         <dependency>
